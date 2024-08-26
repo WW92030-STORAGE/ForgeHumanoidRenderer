@@ -21,7 +21,7 @@ public class HumanoidRenderer<T extends Mob> extends MobRenderer<T, PlayerModel<
     private final PlayerModel<T> model;
 
     public ResourceLocation setTexture(String tex) {
-        texture = new ResourceLocation(Reference.MODID, "darkness");
+        texture = new ResourceLocation(Reference.MODID, "textures/model/" + tex); // SET THIS ACCORDINGLY
         return texture;
     }
 
@@ -29,7 +29,7 @@ public class HumanoidRenderer<T extends Mob> extends MobRenderer<T, PlayerModel<
         super(pContext, new PlayerModel<>(pContext.bakeLayer(ModelLayers.PLAYER), false), 1.8F);
         this.model = this.getModel();
 
-        setTexture("darkness.png");
+        setTexture("darkness.png"); // SET THIS TO WHATEVER TEXTURE IS NEEDED
     }
 
     @Override
@@ -44,7 +44,3 @@ public class HumanoidRenderer<T extends Mob> extends MobRenderer<T, PlayerModel<
         super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
     }
 }
-
-
-
-
