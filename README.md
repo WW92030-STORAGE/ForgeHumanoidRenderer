@@ -8,4 +8,4 @@ Humanoid mob template for Minecraft Forge. The entity in this case is named DARK
 
 # CREDITS
 
-Renderer based on TFGiantMinerRenderer from Twilight Forest. Most other things based on Kaupenjoe's tutorial series.
+Renderer based on TFGiantRenderer from Twilight Forest. Most other things based on Kaupenjoe's tutorial series. 
