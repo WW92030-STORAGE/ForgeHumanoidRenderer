@@ -1,6 +1,3 @@
-package com.darkness.darkness.entity;
-
-import com.darkness.darkness.Reference;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.PlayerModel;
@@ -21,15 +18,15 @@ public class HumanoidRenderer<T extends Mob> extends MobRenderer<T, PlayerModel<
     private final PlayerModel<T> model;
 
     public ResourceLocation setTexture(String tex) {
-        texture = new ResourceLocation(Reference.MODID, "textures/model/" + tex); // SET THIS ACCORDINGLY
+        texture = new ResourceLocation(MODID, "textures/model/" + tex); // MOD ID GOES HERE
         return texture;
     }
 
     public HumanoidRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new PlayerModel<>(pContext.bakeLayer(ModelLayers.PLAYER), false), 1.8F);
+        super(pContext, new PlayerModel<>(pContext.bakeLayer(ModelLayers.PLAYER), false), 0.8F);
         this.model = this.getModel();
 
-        setTexture("darkness.png"); // SET THIS TO WHATEVER TEXTURE IS NEEDED
+        setTexture("darkness.png");
     }
 
     @Override
