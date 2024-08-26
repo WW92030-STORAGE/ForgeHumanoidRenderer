@@ -8,3 +8,30 @@ In the main mod class:
             EntityRenderers.register(ModEntities.DARKNESS.get(), HumanoidRenderer::new);
         }
     }
+
+// Mob passes thru doors (in entity constructor)
+
+((GroundPathNavigation)this.getNavigation()).setCanPassDoors(true);
+((GroundPathNavigation)this.getNavigation()).setCanOpenDoors(true);
+
+this.goalSelector.addGoal(4, new OpenDoorGoal(this, true)); // Do this in the register goals method
+
+// Wrapper method to get entities in a box
+
+    public static ArrayList<Entity> aabb(Entity e, int x1, int y1, int z1, int x2, int y2, int z2) {
+        BlockPos bp1 = new BlockPos(x1, y1, z1);
+        BlockPos bp2 = new BlockPos(x2, y2, z2);
+        AABB aabb = new AABB(bp1, bp2);
+        ArrayList<Entity> things = (ArrayList<Entity>) e.level().getEntities(e, aabb);
+        for (int i = 0; i < things.size(); i++) {
+            if (things.get(i).equals(e)) {
+                things.remove(i);
+                break;
+            }
+        }
+        return things;
+    }
+
+    public static ArrayList<Entity> aabb(Entity e, double x1, double y1, double z1, double x2, double y2, double z2) {
+        return aabb(e, (int)Math.floor(x1), (int)Math.floor(y1), (int)Math.floor(z1), (int)Math.ceil(x2), (int)Math.ceil(y2), (int)Math.ceil(z2));
+    }
