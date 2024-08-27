@@ -1,5 +1,6 @@
 # ForgeHumanoidRenderer
-Humanoid mob rendering template for Minecraft Forge. The entity in this case is named DARKNESS but can be changed freely. 
+- Humanoid mob rendering template for Minecraft Forge. The entity in this case is named DARKNESS but can be changed freely. 
+- You can potentially generalize this to other entities that use premade models.
 
 # FILES
 
